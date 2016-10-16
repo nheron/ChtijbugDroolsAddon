@@ -38,51 +38,31 @@ Base Price
 
 Here are the available options.
 
-\| Fiscal Power bigger than \| Fiscal powwer less than \| Option price per year \| Comment \|
-
-\| --- \| --- \| --- \| --- \|
-
-\| 1 \| 4 \| 600 \| Full Risk \|
-
-\| 5 \| 7 \| 800 \| Full Risk \|
-
-\| 8 \| 11 \| 1200 \| Full Risk \|
-
-\| 12 \| 17 \|2000 \| Full Risk \|
-
-\| 1 \| 4 \| 400 \| Stolen Damage \|
-
-\| 5 \| 7 \| 300 \| Stolen Damage \|
-
-\| 8 \| 11 \| 600 \| Stolen Damage \|
-
-\| 12 \| 17 \| 1000 \| Stolen Damage \|
-
-\| 1 \| 4 \| 200 \| Car Glass Damage \|
-
-\| 5 \| 7 \| 300 \| Car Glass Damage \|
-
-\| 8 \| 11 \| 400 \| Car Glass Damage\|
-
-\| 12 \| 17 \| 500 \| Car Glass Damage \|
+| Fiscal Power bigger than | Fiscal powwer less than | Option price per year | Comment |
+| --- | --- | --- | --- |
+| 1 | 4 | 600 | Full Risk |
+| 5 | 7 | 800 | Full Risk |
+| 8 | 11 | 1200 | Full Risk |
+| 12 | 17 |2000 | Full Risk |
+| 1 | 4 | 400 | Stolen Damage |
+| 5 | 7 | 300 | Stolen Damage |
+| 8 | 11 | 600 | Stolen Damage |
+| 12 | 17 | 1000 | Stolen Damage |
+| 1 | 4 | 200 | Car Glass Damage|
+| 5 | 7 | 300 | Car Glass Damage |
+| 8 | 11| 400 | Car Glass Damage|
+| 12| 17 | 500 | Car Glass Damage |
 
 Here are the prices to add \(to be applied per declared driver and per base+option\).
 
-\| Age bigger than \| Age smaller than \| Maximum number accident last 2 years \| number accident last 5 years less than \| % to add to base price \|
-
-\| --- \| --- \| --- \| --- \| --- \|
-
-\| 16 \| 18 \| \| \| +20% \|
-
-\| 18 \| 30 \| 0\| 0\| +5% \|
-
-\| 18 \| 30 \| 0\| 2 \| +10% \|
-
-\| 18 \| 30 \| 2\| 4\| +12% \|
-
-\| 30 \| \| 0\| 0\| +0% \|
-
-\| 30 \| \| 5 \| 5 \| +10% \|
+| Age bigger than | Age smaller than | Maximum number accident last 2 years | number accident last 5 years less than | % to add to base price |
+| --- | --- | --- | --- | --- |
+| 16 | 18 | | | +20% |
+| 18 | 30 | 0| 0| +5% |
+| 18 | 30 | 0| 2 | +10% |
+| 18 | 30 | 2| 4| +12% |
+| 30 | | 0| 0| +0% |
+| 30 | | 5 | 5 | +10% |
 
 All other cases +25% per driver
 
