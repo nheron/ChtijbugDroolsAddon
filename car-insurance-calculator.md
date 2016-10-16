@@ -68,5 +68,5 @@ All other cases +25% per driver
 
 If more than 4 drivers are declared in the request, starting from the fourth driver and over are free. The 3 drivers to take are the most expansive.
 
-At the end, there can be only one yellow rule that can be fired.
+At the end, only one yellow rule can be fired to accept the case.
 
