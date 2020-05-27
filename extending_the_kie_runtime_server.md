@@ -1,28 +1,28 @@
-# Extending the kie runtime server
+# Extending the kieserver
 
 The 6.4 version offers a kie-server that can be connected to the kie-wb controler that will in return connect to the kie-server.
 
-From within the  kie-wb, it is possible to create a container in the kie-server for an maven workbench artifact.
+From within the kie-wb, it is possible to create a container in the kie-server for an maven workbench artifact.
 
 ## Creating the container
 
 Here we have an example when two kie-servers are connected
 
-![](/action01.png)
+![](.gitbook/assets/action01.png)
 
 We first have to create a container for the swimming pool project we created in the tutorial.
 
-![](/action02.png)
+![](.gitbook/assets/action02.png)
 
-After clicking finish the new container will appear![](/action03.png)After the container are created, we have to start it by clicking the "start" button. They will them appear once there are created.
+After clicking finish the new container will appear![](.gitbook/assets/action03.png)After the container are created, we have to start it by clicking the "start" button. They will them appear once there are created.
 
-![](/action04.png)
+![](.gitbook/assets/action04.png)
 
 On the first kie-server
 
-ser![](/action05.png)On the second kie-server
+ser![](.gitbook/assets/action05.png)On the second kie-server
 
-![](/action06.png)
+![](https://github.com/nheron/chtijbugdroolsaddon/tree/b1d4547024804aaf1b108f47227801ddd67f84f3/action06.png)
 
 ## Testing the container
 
@@ -34,16 +34,12 @@ We then built a service for the swimming pool that will use our drools service. 
 
 ### Architecture of our extension and the service that uses it
 
-Here is a global overview on how to build a complete set of new features : 
+Here is a global overview on how to build a complete set of new features :
 
 * A new instance of kieServerExtension
+* A new instance of KieServerApplicationComponentsService
 
-* A new instance of KieServerApplicationComponentsService 
-
-
-
-
-![](/assets/RuntImeKieServerExtension.jpg)
+![](.gitbook/assets/RuntImeKieServerExtension.jpg)
 
 ### Creating a drools extension for the kie-server
 
@@ -51,13 +47,13 @@ To create a kie-server plugin, you need to implement an interface kieServerExten
 
 Here is the file META-INF\/services\/org.kie.server.services.api.KieServerExtension
 
-```
+```text
 org.chtijbug.kieserver.services.drools.DroolsFrameworkKieServerExtension
 ```
 
 And the class you have to write must implemetns the following interface :
 
-```
+```text
 public interface KieServerExtension {
     boolean isActive();
     void init(KieServerImpl kieServer, KieServerRegistry registry);
@@ -79,7 +75,7 @@ Here is our implementation. In the init method we shall instantiate our service.
 
 In the createContainer method we add all the classes that we find in the container. Notice that we give our extension a name that we shall use later "DroolsFramework".
 
-```
+```text
 public class DroolsFrameworkKieServerExtension implements KieServerExtension {
     public static final String EXTENSION_NAME = "DroolsFramework";
     private static final Logger logger = LoggerFactory.getLogger(DroolsFrameworkKieServerExtension.class);
@@ -215,9 +211,9 @@ public class DroolsFrameworkKieServerExtension implements KieServerExtension {
 }
 ```
 
-Note the method  getAppComponents. We give back the ruleExectutionService that we instanciated in the init method of type DroolsFrameworkRulesExecutionService.
+Note the method getAppComponents. We give back the ruleExectutionService that we instanciated in the init method of type DroolsFrameworkRulesExecutionService.
 
-```
+```text
 @Overridepublic <T> T getAppComponents(Class<T> serviceType) {
     if (serviceType.isAssignableFrom(rulesExecutionService.getClass())) {
         return (T) rulesExecutionService;
@@ -232,7 +228,7 @@ This instance we shall obtain in our service that we want to build to use our se
 
 To build a new service in kie-server that will use a plugin we have to implement an interface
 
-```
+```text
 public interface KieServerApplicationComponentsService {
     Collection<Object> getAppComponents( String extension, SupportedTransports type, Object... services );
 }
@@ -240,7 +236,7 @@ public interface KieServerApplicationComponentsService {
 
 Our implementation looks like this :
 
-```
+```text
 public class LoyaltyKieServerApplicationComponentsService implements KieServerApplicationComponentsService {
     private static final String OWNER_EXTENSION = "DroolsFramework";
     public Collection<Object> getAppComponents(String extension, SupportedTransports type, Object... services) {
@@ -269,7 +265,7 @@ public class LoyaltyKieServerApplicationComponentsService implements KieServerAp
 
 We send back our component SwimmingPoolResource and give it the execution service.
 
-```
+```text
 @Path("server/containers/instances/swimmingpool/")
 public class swimmingpoolResource {
     private static final Logger logger = LoggerFactory.getLogger(swimmingpoolResource.class);
